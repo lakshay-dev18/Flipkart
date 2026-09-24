@@ -23,10 +23,19 @@ const CameraScreen = () => {
             <CameraView style={StyleSheet.absoluteFill} facing='back' />
 
             <View style={styles.overlayContainer}>
-                <TouchableOpacity  onPress={() => router.back()}>
+                <TouchableOpacity  onPress={() => router.back()} style={{position:'absolute', top:30, left:0}}>
                     <Text style={styles.backButton}>Go Back</Text>
                 </TouchableOpacity>
+            <View style={{gap:10, alignItems:'center', flexDirection:'row'}}>
+                <TouchableOpacity>
+                    <Text style={styles.captureButton}>Capture</Text>
+                </TouchableOpacity>
+                <TouchableOpacity>
+                    <Text style={styles.resetButton}>Reset</Text>
+                </TouchableOpacity>
             </View>
+            </View>
+
         </View>
     );
 };
@@ -36,14 +45,16 @@ const styles = StyleSheet.create({
         flex: 1, 
     },
     permissionContainer: {
-        flex: 1,
         backgroundColor: 'black',
         justifyContent: 'center',
         alignItems: 'center',
         padding: 20
     },
     overlayContainer: {
+        flex:1,
         paddingVertical: 50,
+        justifyContent:'flex-end',
+        alignItems:'center',
     },
     backButton: {
         padding: 12,
@@ -51,6 +62,20 @@ const styles = StyleSheet.create({
         color:'white',
 
     },
+    captureButton:{
+        color:'white',
+        backgroundColor:'blue',
+        fontSize:20,
+        padding:6,
+        borderRadius:10        
+    },
+    resetButton:{
+        color:'white',
+        backgroundColor:'blue',
+        fontSize:20,
+        padding:6,
+        borderRadius:10
+    }
 });
 
 export default CameraScreen;

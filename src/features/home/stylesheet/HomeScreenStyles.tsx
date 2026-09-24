@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 import Colors from '../../../../src/shared/themes/colors'
 
 const styles=StyleSheet.create({
-    container:{backgroundColor: Colors.backgroundColor},
+    container:{flex:1,backgroundColor: Colors.backgroundColor},
     gradient:{flex:1},
     houseLogo:{marginLeft:20, marginTop:9},
     addressText:{marginTop:12, fontSize:12, marginLeft:4},

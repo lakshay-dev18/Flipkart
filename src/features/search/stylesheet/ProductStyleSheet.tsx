@@ -1,5 +1,5 @@
 import{StyleSheet} from 'react-native'
-import Colors from '../../../../src/shared/themes/colors'
+import Colors from '../../../shared/themes/colors'
 
 const styles = StyleSheet.create({
     container:{ flex:1 },

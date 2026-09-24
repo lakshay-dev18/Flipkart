@@ -8,7 +8,7 @@ import{router} from 'expo-router'
 import { useLocalSearchParams } from 'expo-router';
 
 
-export default function ProductScreen() {
+const ProductScreen =()=> {
     const[active, setActive] = useState(false)
     const { query } = useLocalSearchParams()
     
@@ -50,7 +50,7 @@ export default function ProductScreen() {
                         </View>
                         <Text style={styles.variantSelectText}>{item.variant.select}</Text>
                         <View style={styles.lineSeparator}/>
-                        <View style={{flexDirection:'row'}}>
+                        <View style={{flexDirection:'row', justifyContent:'space-between', marginRight:8}}>
                             <Text style={styles.variantColorText}>{item.variant.color}</Text>
                             <Text style={styles.variantColorOptionText}>{item.variant.colorMoreOptions}</Text>
                         </View>
@@ -115,3 +115,4 @@ export default function ProductScreen() {
         </SafeAreaView>
     )
 }
+export default ProductScreen;

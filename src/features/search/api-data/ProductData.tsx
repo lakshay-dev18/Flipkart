@@ -9,10 +9,12 @@ const fetchCategories = (method: string): Promise<ProductItem[]> => {
 };
 
 
-export const useProducts = () => {
+const useProducts = () => {
   return useQuery({
     queryKey: ['categories'],
     queryFn: () => fetchCategories('GET'),
+    staleTime:0,
+    gcTime: 1000 * 60 * 5,
   });
 };
 

@@ -13,6 +13,8 @@ export const useCategories = (method: string) => {
   return useQuery({
     queryKey: ['categories', method],
     queryFn: () => fetchCategories(method),
+    staleTime:0,
+    gcTime: 1000 * 60 * 5
   });
 };
 

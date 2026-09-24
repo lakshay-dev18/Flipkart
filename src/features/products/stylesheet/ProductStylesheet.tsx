@@ -13,7 +13,7 @@ const styles=StyleSheet.create({
     variantColorText:{marginTop:6, marginLeft:21, fontSize:15},
     variantStorageText:{marginLeft:21,marginTop:12},
     phoneName:{ fontSize:15, marginLeft:13, marginTop:17 },
-    variantColorOptionText:{marginTop:6, marginLeft:174, fontSize:15},
+    variantColorOptionText:{marginTop:6, fontSize:15},
     variantStorageOptionText:{marginTop:6, marginLeft:170, fontSize:15},
     ratingImage:{width:97,height:16, marginTop:8},
     assuredImage:{position:'absolute',width:99, height:27, right:4,marginTop:4 },

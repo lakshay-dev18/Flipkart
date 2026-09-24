@@ -3,32 +3,42 @@ import {useCategories} from '../../home/home-data/HomeScreenApi'
 import {CategoryItem} from '../../../../src/shared/components/interface/CategoryItemInterface'
 import styles from '../../../../src/features/grocery/stylesheet/GroceryStyleSheet'
 
+interface CategoryProp{
+    item: CategoryItem
+}
 
-
-export function FlatlistCategory(){
-  const { data} = useCategories('Get');
+// export const FlatlistCategory = ()=>{
+//   const { data} = useCategories('Get');
+//     return(
+//         <View>
+//             <FlatList
+//             data={data?.slice(0,8)} 
+//             keyExtractor={(item) => item.id.toString()}
+//             scrollEnabled={false}
+//             columnWrapperStyle={styles.columnWrapper}
+//             numColumns={4}
+//             renderItem={({ item }: { item: CategoryItem }) => {
+//                 return (
+//                 <View style={styles.bodyContainer}>
+//                     <Image source={{ uri: item.image }} style={styles.bodyImage} />
+//                     <Text style={styles.bodyName}>{item.name}</Text> 
+//                 </View>
+//             )    
+//             }}
+//             />
+//             </View>
+//     )
+// }            
+export const FlatlistCategory = ({item}:CategoryProp)=>{
     return(
-        <View>
-            <FlatList
-            data={data?.slice(0,8)} 
-            keyExtractor={(item) => item.id.toString()}
-            scrollEnabled={false}
-            columnWrapperStyle={styles.columnWrapper}
-            numColumns={4}
-            renderItem={({ item }: { item: CategoryItem }) => {
-                return (
-                <View style={styles.bodyContainer}>
-                    <Image source={{ uri: item.image }} style={styles.bodyImage} />
-                    <Text style={styles.bodyName}>{item.name}</Text> 
-                </View>
-            )    
-            }}
-            />
-            </View>
+    <View style={styles.bodyContainer}>
+        <Image source={{ uri: item.image }} style={styles.bodyImage} />
+        <Text style={styles.bodyName}>{item.name}</Text> 
+    </View>
     )
 }            
 
-export function FlatlistGroceryContainer(){
+export const FlatlistGroceryContainer = ()=>{
   const { data} = useCategories('Get');
     return(
         <FlatList
@@ -47,3 +57,5 @@ export function FlatlistGroceryContainer(){
         />
     )
 }            
+
+

@@ -1,2 +1,5 @@
-import FlipkartSplashScreen from '../../src/app/SplashScreen'
-export default FlipkartSplashScreen
+import { Redirect } from 'expo-router';
+
+export default function Index() {
+  return <Redirect href="/SplashScreen" />; 
+}

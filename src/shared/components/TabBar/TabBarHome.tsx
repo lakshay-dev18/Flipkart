@@ -41,3 +41,56 @@ const styles=StyleSheet.create({
     tabGroceryButton:{paddingLeft:20, paddingRight:13,},
     grocerryLogo:{width:24, height:24,marginLeft:30}
 })
+
+
+
+
+
+
+// [
+//   {
+//     "name": "Grocery",
+//     "image": "https://rukminim2.flixcart.com/fk-p-flap/1600/780/image/1312x640-19f82h-1788932163915.png?q=80",
+//     "id": "1"
+//   },
+//   {
+//     "name": "Beauty",
+//     "image": "https://rukminim2.flixcart.com/fk-p-flap/1600/780/image/7e7d11ad0994e264.jpg?q=80",
+//     "id": "2"
+//   },
+//   {
+//     "name": "Fashion",
+//     "image": "https://rukminim2.flixcart.com/fk-p-flap/1600/780/image/eff69b210855cba7.jpg?q=80",
+//     "id": "3"
+//   },
+//   {
+//     "name": "Sony Tv",
+//     "image": "https://rukminim2.flixcart.com/fk-p-flap/1600/780/image/a9c1f3a3452bd037.png?q=80",
+//     "id": "4"
+//   },
+//   {
+//     "name": "Samsung",
+//     "image": "https://rukminim2.flixcart.com/fk-p-flap/1600/780/image/1312x640-19f82h-1789043911670.png?q=80",
+//     "id": "5"
+//   },
+//   {
+//     "name": "Furniture",
+//     "image": "https://rukminim2.flixcart.com/fk-p-flap/1600/780/image/1312x640-19f82h-1788932163915.png?q=80",
+//     "id": "6"
+//   },
+//   {
+//     "name": "Airpods",
+//     "image": "https://rukminim2.flixcart.com/fk-p-flap/1600/780/image/868824ec5db9f6ba.png?q=80",
+//     "id": "7"
+//   },
+//   {
+//     "name": "Idols",
+//     "image": "https://rukminim2.flixcart.com/fk-p-flap/1600/780/image/5f40f64dac963b29.jpg?q=80",
+//     "id": "8"
+//   },
+//   {
+//     "name": "name 9",
+//     "image": "https://rukminim2.flixcart.com/fk-p-flap/1600/780/image/5f40f64dac963b29.jpg?q=80",
+//     "id": "9"
+//   }
+// ]

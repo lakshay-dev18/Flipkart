@@ -1,23 +1,18 @@
 import{View,Text, FlatList, ActivityIndicator, Image, Pressable, TouchableWithoutFeedback, Keyboard, TouchableOpacity} from 'react-native'
-import styles from '../stylesheet/IphoneStyleSheet'
+import styles from '../stylesheet/ProductStyleSheet'
 import { MoveLeft , ShoppingCart, Search,} from 'lucide-react-native';
 import{SafeAreaView} from 'react-native-safe-area-context'
-import {useProducts} from '../api-data/IphoneData'
-import {router, useFocusEffect, useLocalSearchParams} from 'expo-router'
-import SearchField from '../../../../src/shared/components/search-function/SearchFunction'
-import { useCallback } from 'react';
+import useProducts from '../api-data/ProductData'
+import {router} from 'expo-router'
+import SearchField from '../../../shared/components/search-function/SearchFunction'
+import { useState } from 'react';
+import {ProductItem} from '../../../shared/components/interface/ProductItems'
 
 
-export default function IPhoneSearch(){
-      const { data, isLoading, isError , refetch} = useProducts();
-       const { query} = useLocalSearchParams() 
+const ProductSearch = ()=>{
+      const { isLoading, isError} = useProducts();
+       const[search, setSearch] = useState<ProductItem[]>()
 
-    useFocusEffect(
-        useCallback(()=>{
-            refetch()
-        },[refetch])
-    )  
-    
     if (isLoading) {
         return (
           <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -34,17 +29,13 @@ export default function IPhoneSearch(){
           </View>
         );
       }
-      const handleSearch = ()=> {
-        if(query === 'iphone'){return data?.slice(0,8)}
-        if(query === 'samsung'){return data?.slice(8,16)}
-      }
     return(
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <SafeAreaView style={styles.container}>
             <View style={styles.topContainer}>
                 <MoveLeft size={22} onPress={()=>router.back()}/>
                 <Search size={18} style={styles.searchLogo}/>
-                <SearchField style={styles.searchInput} />
+                <SearchField style={styles.searchInput} onFilterChange={(filteredData)=>setSearch(filteredData)}/>
                 <TouchableOpacity onPress={()=>router.push('/(tabs)/cart')}>
                 <ShoppingCart/>
                 </TouchableOpacity>
@@ -52,7 +43,7 @@ export default function IPhoneSearch(){
             <View style={styles.line}/>
 
             <FlatList
-            data={handleSearch()}
+            data={search}
             keyExtractor={(item)=>item.id.toString()}
             ItemSeparatorComponent={<View style={styles.separatorLine}/>}
             renderItem={({item})=>(
@@ -88,3 +79,4 @@ export default function IPhoneSearch(){
         </TouchableWithoutFeedback>
     )
 }
+export default ProductSearch;

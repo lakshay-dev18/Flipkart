@@ -1,11 +1,13 @@
 import{ Tabs} from 'expo-router'
 import { Ionicons } from '@expo/vector-icons'
-import Colors from '../../shared/themes/colors'
 
 const BottomTab= ()=>{
     return(
+        // <Tabs screenOptions={{headerShown:false ,tabBarStyle:{
+        //  paddingHorizontal:32, backgroundColor:Colors.linearHomeColor3, marginBottom:2
+        // }}} >    
         <Tabs screenOptions={{headerShown:false ,tabBarStyle:{
-         paddingHorizontal:32, backgroundColor:Colors.linearHomeColor3, marginBottom:2
+         paddingHorizontal:32, marginBottom:10, width:'85%', borderRadius:20,  position:'absolute', marginLeft:28
         }}} >    
             <Tabs.Screen name='home'  
             options={{
