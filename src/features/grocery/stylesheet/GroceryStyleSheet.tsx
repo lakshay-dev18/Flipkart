@@ -22,10 +22,11 @@ const styles=StyleSheet.create({
     bodyName:{alignSelf:'center'},
     FooterText:{ fontFamily: 'Inter', fontWeight: 500, fontSize: 16, letterSpacing: 0, marginTop:39, marginLeft:12 , color:Colors.textColor},
     FooterBasedText:{ fontFamily: 'Inter', fontWeight: 500, fontSize: 12, letterSpacing: 0, marginTop:9, marginLeft:12 ,color:Colors.textColor},
-    groceryContainer:{marginTop:28, marginLeft:15},
+    groceryContainer:{marginTop:28, marginLeft:15, },
     groceryImage:{width:100, height:146,  borderRadius: 8, backgroundColor: Colors.imagebackgroundColor, overflow: 'visible', elevation: 5, shadowColor: Colors.shadowColor, shadowOffset: { width: 0, height: 3 }, shadowOpacity: 0.2, shadowRadius: 4},
-    groceryName:{alignSelf:'center'},
+    groceryName:{alignSelf:'center',},
     forwardLogo:{marginTop:34, marginLeft:174},
+    bottom:{marginTop:80}
 
 })
 export default styles;

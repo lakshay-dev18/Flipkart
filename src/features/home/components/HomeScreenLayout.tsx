@@ -2,6 +2,8 @@ import { House, Search, Camera, QrCode} from 'lucide-react-native';
 import { View, Text, Image,  TouchableOpacity, TextInput} from 'react-native'
 import styles from '../../../../src/features/home/stylesheet/HomeScreenStyles'
 import { router } from 'expo-router';
+import { LinearGradient } from 'expo-linear-gradient';
+import Colors from '../../../shared/themes/colors';
 
 
 
@@ -14,7 +16,6 @@ export const HomeScreenLayout=()=>{
             <Image source={require('../../../../assets/HomeScreenIcons/coin.png')} style={styles.coin}/>
             <Text style={styles.coinText}>16</Text>
         </View>
-            
     )
 }
 

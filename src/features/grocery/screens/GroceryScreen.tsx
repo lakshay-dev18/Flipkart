@@ -70,6 +70,7 @@ if (isLoading) {
       <View>
         <Text style={styles.FooterText}>Rahul, is still looking for these..</Text>
         <FlatlistGroceryContainer/>
+        <View style={styles.bottom}/>
       </View>
       }
       />

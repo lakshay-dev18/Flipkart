@@ -15,6 +15,7 @@ const Colors = {
     linearHomeColor3:'#FFFBFB',
     splashColor: '#1F74BA',
     TabActiveButton:'#FEE65E',
-    ActiveGroceryButton:'#9F890E'
+    ActiveGroceryButton:'#9F890E',
+    rippleColor:'rgba(0, 0, 0, 0.1)'
 }
 export default Colors;
