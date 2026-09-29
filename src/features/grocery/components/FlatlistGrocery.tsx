@@ -6,29 +6,7 @@ import styles from '../../../../src/features/grocery/stylesheet/GroceryStyleShee
 interface CategoryProp{
     item: CategoryItem
 }
-
-// export const FlatlistCategory = ()=>{
-//   const { data} = useCategories('Get');
-//     return(
-//         <View>
-//             <FlatList
-//             data={data?.slice(0,8)} 
-//             keyExtractor={(item) => item.id.toString()}
-//             scrollEnabled={false}
-//             columnWrapperStyle={styles.columnWrapper}
-//             numColumns={4}
-//             renderItem={({ item }: { item: CategoryItem }) => {
-//                 return (
-//                 <View style={styles.bodyContainer}>
-//                     <Image source={{ uri: item.image }} style={styles.bodyImage} />
-//                     <Text style={styles.bodyName}>{item.name}</Text> 
-//                 </View>
-//             )    
-//             }}
-//             />
-//             </View>
-//     )
-// }            
+      
 export const FlatlistCategory = ({item}:CategoryProp)=>{
     return(
     <View style={styles.bodyContainer}>

@@ -6,20 +6,25 @@ import { MoveLeft, Heart, CornerUpRight , MoveDown, IndianRupee, Plus, ShoppingC
 import data from '../product-data/ProductData'
 import{router} from 'expo-router'
 import { useLocalSearchParams } from 'expo-router';
-
+import {useCart} from '../../../../src/shared/components/context/CartContext'
 
 const ProductScreen =()=> {
+    const{addToCart} = useCart()
     const[active, setActive] = useState(false)
     const { query } = useLocalSearchParams()
     
     const handlePress = () => {
-    setActive(!active);
+        setActive(!active);
   };
 
     const handleSearch = () => {
         if(query === 'iphone'){return data.slice(0,1)}
         if(query === 'samsung'){return data.slice(1,2)}
     }
+
+
+    const filteredProducts = handleSearch() || [];
+    const currentProduct = filteredProducts?.[0];
 
     return (
         <SafeAreaView style={styles.container}>
@@ -101,9 +106,19 @@ const ProductScreen =()=> {
                 )}
             />
             <View style={styles.bottomButtonContainer}>
-                <TouchableOpacity onPress={()=>router.push('/cart')}>
-                    <ShoppingCart size={24} style={styles.cartIcon}/>
-                </TouchableOpacity>
+                <TouchableOpacity 
+    onPress={() => {
+        if (currentProduct) {
+            addToCart(currentProduct); 
+            alert(`${currentProduct.name} added to cart!`);
+        } else {
+            alert("No product found to add!");
+        }
+    }}
+>
+    <ShoppingCart size={24} style={styles.cartIcon}/>
+</TouchableOpacity>
+
                 <View style={styles.emiContainer}>
                 <Text style={styles.emiText}>Pay With EMI</Text>
                 <Text style={styles.emiTime}>From ₹10,499/m</Text>

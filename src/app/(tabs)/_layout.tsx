@@ -1,19 +1,20 @@
 import{ Tabs} from 'expo-router'
 import { Ionicons } from '@expo/vector-icons'
+import Colors from '../../../src/shared/themes/colors'
 
 const BottomTab= ()=>{
-    return(
-        // <Tabs screenOptions={{headerShown:false ,tabBarStyle:{
-        //  paddingHorizontal:32, backgroundColor:Colors.linearHomeColor3, marginBottom:2
-        // }}} >    
-        <Tabs screenOptions={{headerShown:false ,tabBarStyle:{
-         paddingHorizontal:32, marginBottom:10, width:'85%', borderRadius:20,  position:'absolute', marginLeft:28
-        }}} >    
-            <Tabs.Screen name='home'  
+    return(  
+        <Tabs screenOptions={{headerShown:false ,  
+            tabBarStyle:{paddingHorizontal:8,marginLeft:20, marginBottom:10, width:'90%', borderRadius:20,  position:'absolute',},
+            tabBarActiveBackgroundColor: Colors.bottomTab, 
+        }} 
+            // safeAreaInsets={{ bottom: 0 }} 
+        >    
+            <Tabs.Screen name='home' 
             options={{
                 title:'Home',
                  tabBarIcon: ({  focused }) => (
-                    <Ionicons name={focused? 'home' : 'home-outline'} size={24} />
+                    <Ionicons name={focused? 'home' : 'home-outline'} size={24} color={focused? 'blue' : 'black'}/>
           ),
             }
             }/>
@@ -21,7 +22,7 @@ const BottomTab= ()=>{
             options={{
                 title:'Play',
                  tabBarIcon: ({  focused }) => (
-                    <Ionicons name={focused? 'play-circle' : 'play-circle-outline'} size={24} />
+                    <Ionicons name={focused? 'play-circle' : 'play-circle-outline'} size={24} color={focused? 'blue' : 'black'}/>
           ),
             }
             }/>
@@ -29,25 +30,24 @@ const BottomTab= ()=>{
             options={{
                 title:'Categories',
                  tabBarIcon: ({  focused }) => (
-                    <Ionicons name={focused? 'apps' : 'apps-outline'} size={24} />
+                    <Ionicons name={focused? 'apps' : 'apps-outline'} size={24} color={focused? 'blue' : 'black'}/>
           ),
             }
             }/>
             <Tabs.Screen name='account'  options={{
                 title:'Account',
                  tabBarIcon: ({  focused }) => (
-                    <Ionicons name={focused? 'person' : 'person-outline'} size={24} />
+                    <Ionicons name={focused? 'person' : 'person-outline'} size={24} color={focused? 'blue' : 'black'}/>
                 ),
             }}/>
             <Tabs.Screen name='cart' 
             options={{
                 title:'Cart',
                  tabBarIcon: ({  focused }) => (
-                    <Ionicons name={focused? 'cart' : 'cart-outline'} size={24} />
+                    <Ionicons name={focused? 'cart' : 'cart-outline'} size={24} color={focused? 'blue' : 'black'}/>
           ),
             }
             }/>
-            
         </Tabs>
     )
 }

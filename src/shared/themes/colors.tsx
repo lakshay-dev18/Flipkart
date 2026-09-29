@@ -16,6 +16,12 @@ const Colors = {
     splashColor: '#1F74BA',
     TabActiveButton:'#FEE65E',
     ActiveGroceryButton:'#9F890E',
-    rippleColor:'rgba(0, 0, 0, 0.1)'
+    rippleColor:'rgba(0, 0, 0, 0.1)',
+    cartColor:'#2c61c9',
+    addressColor:'#E2E8F0',
+    indicatorColor:'#0000ff',
+    wishlistContainer:'#2c53ef',
+    bottomTab:'#e0e0e0',
+    profilebutton:'#155cc6'
 }
 export default Colors;
