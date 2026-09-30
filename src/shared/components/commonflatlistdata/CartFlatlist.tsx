@@ -1,6 +1,7 @@
 import{View, FlatList, StyleSheet, Image, Text, TouchableOpacity} from 'react-native'
 import useProducts from '../../../features/search/api-data/ProductData'
 import {ProductItem} from '../interface/ProductItems'
+import {router} from 'expo-router'
 
 
 interface Prop{
@@ -16,7 +17,7 @@ export const CartList = ({setChangeData}:Prop) => {
                 horizontal
                 keyExtractor={(item)=>item.id.toString()}
                 renderItem={({item})=>(
-                    <View style={styles.suggestionContainer}>
+                    <TouchableOpacity style={styles.suggestionContainer} onPress={()=>router.push({pathname:'/screens/ProductScreen', params:{ query: 'samsung' }})}>
                         <Image source={{uri: item.phoneimage}} style={styles.productImage}/>
                         <Text numberOfLines={1} style={styles.name}>{item.name}</Text>
                         <View style={{flexDirection:'row', gap:5}}>
@@ -27,7 +28,7 @@ export const CartList = ({setChangeData}:Prop) => {
                             <TouchableOpacity onPress={()=>setChangeData(item)}>
                                 <Text style={styles.cartButton}>Add to Cart</Text>
                             </TouchableOpacity>
-                    </View>
+                    </TouchableOpacity>
                 )}
                 />
             </View>

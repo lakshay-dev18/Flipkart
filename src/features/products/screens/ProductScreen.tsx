@@ -9,12 +9,15 @@ import { useLocalSearchParams } from 'expo-router';
 import {useCart} from '../../../../src/shared/components/context/CartContext'
 
 const ProductScreen =()=> {
-    const{addToCart} = useCart()
+    const{addToCart, toggleWishlist, wishlistItems } = useCart()
     const[active, setActive] = useState(false)
     const { query } = useLocalSearchParams()
     
     const handlePress = () => {
         setActive(!active);
+        if (currentProduct) {
+        toggleWishlist(currentProduct); 
+    }
   };
 
     const handleSearch = () => {
@@ -26,15 +29,24 @@ const ProductScreen =()=> {
     const filteredProducts = handleSearch() || [];
     const currentProduct = filteredProducts?.[0];
 
+    const isLiked = currentProduct 
+        ? wishlistItems.some(item => item.id === currentProduct.id) 
+        : false;
+    
+
     return (
         <SafeAreaView style={styles.container}>
             <TouchableOpacity onPress={()=>router.back()}>
                 <MoveLeft style={styles.leftIcon} />
             </TouchableOpacity>
-            <TouchableOpacity style={styles.heartIcon} onPress={handlePress}>
+            {/* <TouchableOpacity style={styles.heartIcon} onPress={handlePress}>
                 {active === true ? <Heart fill='red' /> : <Heart />}
-            </TouchableOpacity>
+            </TouchableOpacity> */}
 
+            <TouchableOpacity style={styles.heartIcon} onPress={handlePress}>
+                {isLiked ? <Heart fill='red' color='red' /> : <Heart color='black' />}
+            </TouchableOpacity>
+    
             <FlatList
                 data={handleSearch()}
                 keyExtractor={(item) => item.id.toString()}
@@ -107,15 +119,15 @@ const ProductScreen =()=> {
             />
             <View style={styles.bottomButtonContainer}>
                 <TouchableOpacity 
-    onPress={() => {
-        if (currentProduct) {
-            addToCart(currentProduct); 
-            alert(`${currentProduct.name} added to cart!`);
-        } else {
-            alert("No product found to add!");
-        }
-    }}
->
+                onPress={() => {
+                    if (currentProduct) {
+                        addToCart(currentProduct); 
+                        alert(`${currentProduct.name} added to cart!`);
+                    } else {
+                        alert("No product found to add!");
+                    }
+                }}
+                >
     <ShoppingCart size={24} style={styles.cartIcon}/>
 </TouchableOpacity>
 
